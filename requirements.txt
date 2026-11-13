@@ -1,0 +1,15 @@
+# 运行环境：Python >= 3.11（Provider SDK 的 requires-python）。
+#
+# Provider SDK 从 GitHub 安装，不复制源码、不改 sys.path：
+#   python3 -m venv .venv
+#   source .venv/bin/activate
+#   python -m pip install -r requirements.txt
+# [otel] 额外安装 opentelemetry-sdk，仅用于可选的控制台 exporter 与 trace 关联测试。
+provider-sdk[otel] @ git+https://github.com/TomYang1024/provider-model.git@main
+
+# 下界与 SDK 对齐（SDK 要求 pydantic>=2.14）。
+pydantic>=2.14,<3
+# 旧版声明的 openai>=1.70,<3 与 SDK 的 openai>=3.46,<4 无解，且本目录代码从不直接
+# import openai；因此移除该直接依赖，由 provider-sdk 传递引入并约束版本。
+pytest>=8.3,<10
+pytest-asyncio>=0.25,<2

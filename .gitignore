@@ -1,0 +1,14 @@
+# 本目录的本地产物：虚拟环境、审计日志、测试缓存都不提交。
+.venv/
+.pytest_cache/
+__pycache__/
+audit_logs/
+*.jsonl
+.env
+.env.*
+!.env.example
+架构图/
+.idea/
+.DS_Store
+*.tar.gz
+*.zip
